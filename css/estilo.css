@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: rgb(34, 3, 3);
+}
+
+canvas{
+    position:absolute;
+    background-color: purple;
+    border-radius: 10%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}

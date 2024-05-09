@@ -1,12 +1,12 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: rgb(34, 3, 3);
+    background-color: rgb(9, 3, 65);
 }
 
 canvas{
     position:absolute;
-    background-color: purple;
+    background-color: #8600c8;
     border-radius: 10%;
     margin: auto;
     top: 0;

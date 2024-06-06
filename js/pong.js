@@ -103,8 +103,13 @@ function moverPlayer() {
 function moveBall() {
     ball.px += ball.direcion
 
+
+}
+
+function colisaoBall() {
     if(ball.py + ball.h >= player2.py && ball.py <= player2.py + player2.h 
-        && ball.px <= player2.px + player2.w && ball.px + ball.w >= player2.px) {
+        && ball.px <= player2.px + player2.w && ball.px + ball.w >= player2.px) 
+    {
         ball.direcion *= -1 
     }
     
@@ -115,11 +120,28 @@ function moveBall() {
     }
 }
 
+function pontos() {
+    if(ball.px < -100) {
+        ball.px = 625
+        ball.py = 345
+        ball.direcion *= -1 
+        sc2 += 1
+    }
+    else if (ball.px > 1380) {
+        ball.px = 625
+        ball.py = 345
+        ball.direcion *= -1 
+        sc1 += 1
+    }
+}
+
 function main() {
     quadro.clearRect(0, 0, 1280, 720)
     draw()
     moveBall()
     moverPlayer()
+    colisaoBall()
+    pontos()
 }
 
 setInterval(main,10)

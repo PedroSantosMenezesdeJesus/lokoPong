@@ -32,6 +32,7 @@ let ball = {
     w: 30,
     h: 30,
     direcion: 6,
+    direcionY: 2,
 }
 
 quadro.font = '30px arial'
@@ -102,8 +103,7 @@ function moverPlayer() {
 
 function moveBall() {
     ball.px += ball.direcion
-
-
+    ball.py += ball.direcionY
 }
 
 function colisaoBall() {

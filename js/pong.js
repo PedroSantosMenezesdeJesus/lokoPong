@@ -4,6 +4,14 @@ const quadro =  canvas.getContext('2d')
 
 let jogar = true
 
+const pong = new Audio('audios/pong.mp3')
+
+const rolha = new Audio('audios/rolha.mp3')
+
+const stock = new Audio('audios/stock.mp3')
+
+const gotaBall = new Audio('audios/gotaBall.mp3')
+
 //let player = quadro.fillRect(80, 260, 30, 200)
 
 //let player2 = quadro.fillRect(1170, 260, 30, 200)

@@ -2,6 +2,8 @@ const canvas = document.querySelector('#canvas')
 
 const quadro =  canvas.getContext('2d')
 
+let jogar = true
+
 //let player = quadro.fillRect(80, 260, 30, 200)
 
 //let player2 = quadro.fillRect(1170, 260, 30, 200)
@@ -104,6 +106,15 @@ function moverPlayer() {
 function moveBall() {
     ball.px += ball.direcion
     ball.py += ball.direcionY
+
+    if(ball.py < 0)
+    {
+        ball.direcionY *= -1
+    }
+    else if (ball.py > 690) 
+    {
+        ball.direcionY *= -1
+    }
 }
 
 function colisaoBall() {
@@ -135,13 +146,33 @@ function pontos() {
     }
 }
 
+function endGame() {
+    if(sc1 > 2 || sc2 > 2) {
+        jogar = false
+    }
+}
+
+function winner() {
+    quadro.clearRect(0, 0, 1280, 720)
+    quadro.font = '60px arial'
+    quadro.fillText(`pontuação 1: ${sc1}`, 100, 360)
+    quadro.fillText(`pontuação 2: ${sc2}`, 800, 360)
+}
+
 function main() {
+    if(jogar)
+    {
     quadro.clearRect(0, 0, 1280, 720)
     draw()
     moveBall()
     moverPlayer()
     colisaoBall()
     pontos()
+    endGame()
+    }
+    else {
+        winner()
+    }
 }
 
 setInterval(main,10)

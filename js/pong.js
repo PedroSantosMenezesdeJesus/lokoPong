@@ -6,11 +6,13 @@ let jogar = true
 
 const pong = new Audio('audios/pong.mp3')
 
-const rolha = new Audio('audios/rolha.mp3')
+const gionor = new Audio('audios/gionor.mp3')
 
 const stock = new Audio('audios/stock.mp3')
 
-const gotaBall = new Audio('audios/gotaBall.mp3')
+const orb = new Audio('audios/orb.mp3')
+
+const goku = new Audio('audios/instinto_superior.mp3')
 
 //let player = quadro.fillRect(80, 260, 30, 200)
 
@@ -60,6 +62,8 @@ function draw() {
     quadro.fillText(`pontuação 1 : ${sc1}`, 200, 50)
 
     quadro.fillText(`pontuação 2 : ${sc2}`, 900, 50)
+
+    gionor.play()
 }
 
 document.addEventListener('keydown', function(e){
@@ -118,10 +122,12 @@ function moveBall() {
     if(ball.py < 0)
     {
         ball.direcionY *= -1
+        stock.play()
     }
     else if (ball.py > 690) 
     {
         ball.direcionY *= -1
+        stock.play()
     }
 }
 
@@ -130,12 +136,14 @@ function colisaoBall() {
         && ball.px <= player2.px + player2.w && ball.px + ball.w >= player2.px) 
     {
         ball.direcion *= -1 
+        orb.play()
     }
     
     if (ball.py + ball.h >= player1.py && ball.py <= player1.py + player1.h 
         && ball.px <= player1.px + player1.w && ball.px + ball.w >= player1.px) 
     {
         ball.direcion *= -1 
+        orb.play()
     }
 }
 
@@ -145,12 +153,14 @@ function pontos() {
         ball.py = 345
         ball.direcion *= -1 
         sc2 += 1
+        pong.play()
     }
     else if (ball.px > 1380) {
         ball.px = 625
         ball.py = 345
         ball.direcion *= -1 
         sc1 += 1
+        pong.play()
     }
 }
 
@@ -165,6 +175,7 @@ function winner() {
     quadro.font = '60px arial'
     quadro.fillText(`pontuação 1: ${sc1}`, 100, 360)
     quadro.fillText(`pontuação 2: ${sc2}`, 800, 360)
+    goku.play()
 }
 
 function main() {
